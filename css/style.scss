@@ -1,0 +1,707 @@
+// Файл обнуляющих стилей
+@import "_reset.scss";
+
+body {
+   font-family: "Lato", sans-serif;
+   font-weight: 400;
+}
+
+.lock {
+   overflow: hidden;
+}
+
+.wrapper {
+   overflow: hidden;
+   height: 100%;
+}
+
+.ibg {
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   position: relative;
+
+   img {
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      visibility: hidden;
+   }
+}
+
+.container {
+   max-width: 1130px;
+   margin: 0 auto;
+   padding: 0 15px;
+}
+
+.page {
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
+   display: flex;
+   flex-direction: column;
+}
+.main-screen {
+   flex: 1 0 100%;
+   position: relative;
+
+   &__bg {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+   }
+}
+
+.header {
+   position: absolute;
+   width: 100%;
+   z-index: 50;
+   left: 0;
+   top: 30px;
+
+   &__row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 85px;
+   }
+
+   &__menu {
+   }
+
+   &__logo {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      z-index: 2;
+      transform: translateX(-50%);
+   }
+}
+.menu {
+   &__body {
+   }
+
+   &__list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+
+   li {
+      padding: 0 37.5px;
+      position: relative;
+
+      &:nth-child(2) {
+         padding: 0px 110px 0px 37.5px;
+      }
+
+      &:nth-child(3) {
+         padding: 0px 37.5px 0px 110px;
+      }
+
+      &:after {
+         content: "";
+         width: 2px;
+         height: 2px;
+         background: #4d4959;
+         border-radius: 50%;
+         position: absolute;
+         top: 50%;
+         right: 0;
+         z-index: 1;
+         margin: -1px 0px 0px 0px;
+      }
+
+      &:nth-child(2),
+      &:last-child {
+         &:after {
+            display: none;
+         }
+      }
+   }
+
+   &__link {
+      color: #4d4959;
+      font-family: "Lato", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2.6px;
+      position: relative;
+
+      &:after {
+         content: "";
+         height: 1px;
+         width: 0;
+         background-color: #4d4959;
+         position: absolute;
+         bottom: -3px;
+         left: 0;
+         transition: width 0.2s linear;
+      }
+
+      &:hover:after {
+         width: 100%;
+      }
+   }
+
+   @media (max-width: 767px) {
+      &__body {
+         width: 100%;
+         height: 100%;
+         background-color: #4d4959;
+         position: fixed;
+         top: -100%;
+         left: 0;
+         overflow: auto;
+         padding: 150px 0 20px 0;
+         transition: all 0.3s ease;
+
+         &.active {
+            top: 0;
+         }
+      }
+
+      &__list {
+         flex-direction: column;
+      }
+
+      li {
+         padding: 0px 0px 45px 0px;
+
+         &:nth-child(2),
+         &:nth-child(3) {
+            padding: 0px 0px 45px 0px;
+            &:after {
+               display: block;
+            }
+         }
+         &:last-child {
+            padding: 0;
+         }
+
+         &:after {
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            top: 40px;
+            right: 50%;
+            margin: 0px -2px 0px 0px;
+         }
+      }
+
+      &__link {
+         color: #fff;
+			font-size: 20px;
+			
+			&:after {
+				content:'';
+				background-color: #fff;
+			}
+      }
+   }
+}
+/*    бургер   */
+.icon-menu {
+   @media (max-width: 767px) {
+      width: 30px;
+      height: 18px;
+      position: absolute;
+      top: 25px;
+      right: 20px;
+      z-index: 5;
+      cursor: pointer;
+
+      span {
+         width: 100%;
+         height: 2px;
+         background: #000;
+         position: absolute;
+         top: 8px;
+         left: 0;
+         transition: all 0.3s ease;
+
+         &:first-child {
+            top: 0;
+         }
+         &:last-child {
+				width: 80%;
+            top: auto;
+            bottom: 0;
+         }
+      }
+      &.active {
+         span {
+            transform: scale(0);
+            background-color: #fff;
+            &:first-child {
+               transform: rotate(-45deg);
+               top: 8px;
+            }
+            &:last-child {
+               transform: rotate(45deg);
+					bottom: 8px;
+					width: 100%;
+            }
+         }
+      }
+   }
+}
+/*    конец бургер    */
+
+.about {
+   background-color: #f7f7f7;
+   padding: 120px 0px;
+
+   &__block {
+   }
+
+   @media (max-width: 900px) {
+      padding: 60px 0;
+   }
+
+   @media (max-width: 600px) {
+      padding: 30px 0;
+   }
+}
+
+.block {
+   text-align: center;
+   font-family: "Lato", sans-serif;
+   font-size: 18px;
+
+   &__icon {
+      margin-bottom: 30px;
+   }
+
+   &__title {
+      color: #353738;
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: 3.6px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+   }
+
+   &__text {
+      color: #848789;
+      line-height: 1.88;
+
+      &--j {
+         text-align: justify;
+         font-size: 16px;
+
+         &:after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 1px;
+            margin: 35px auto 0;
+            background-color: #ebebeb;
+         }
+      }
+   }
+   @media (max-width: 1500px) {
+      &__text {
+         &--j {
+            &:after {
+               margin: 15px auto 0;
+            }
+         }
+      }
+   }
+}
+
+.brands {
+   &__row {
+      display: flex;
+
+      @media (max-width: 1100px) {
+         flex-direction: column;
+      }
+   }
+
+   &__column {
+      flex: 0 1 33.333%;
+   }
+
+   &__column--big {
+      flex: 0 1 66.667%;
+   }
+
+   &__item {
+   }
+
+   &__content {
+      padding: 70px 65px 55px 65px;
+      position: relative;
+
+      &::after {
+         content: "";
+         position: absolute;
+         bottom: -10px;
+         left: 50%;
+         z-index: 2;
+         margin-left: -10px;
+         width: 0;
+         height: 0;
+         border-left: 10px solid transparent;
+         border-right: 10px solid transparent;
+         border-top: 10px solid #fff;
+      }
+      @media (max-width: 1500px) {
+         padding: 40px 35px 25px 35px;
+      }
+   }
+
+   &__image {
+      padding: 0px 0px 37.51% 0px;
+   }
+}
+
+.item {
+   height: 100%;
+   display: block;
+   position: relative;
+
+   &__logo {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: hsla(157, 44%, 58%, 0.5);
+      z-index: 2;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s linear;
+
+      span {
+         margin-top: 10px;
+         color: #fff;
+         font-size: 14px;
+         font-weight: 700;
+         text-transform: uppercase;
+      }
+   }
+
+   &__image {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+   }
+   &:hover {
+      .item__logo {
+         opacity: 1;
+         visibility: visible;
+      }
+   }
+
+   @media (max-width: 1500px) {
+      padding: 0px 0px 70% 0px;
+   }
+}
+
+.slider {
+   padding: 120px 0 60px;
+
+   @media (max-width: 900px) {
+      padding: 80px 0px 40px;
+   }
+
+   @media (max-width: 600px) {
+      padding: 30px 0px 40px;
+   }
+
+   &__body {
+   }
+
+   &__item {
+      text-align: center;
+   }
+
+   &__icon {
+      margin-bottom: 35px;
+   }
+
+   &__title {
+      color: #353738;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 20px;
+
+      span {
+         color: #848789;
+         font-weight: 300;
+      }
+   }
+
+   &__text {
+      color: #848789;
+      font-size: 24px;
+      line-height: 34px;
+      font-style: italic;
+   }
+}
+
+.shop {
+   &__body {
+      display: flex;
+      flex-wrap: wrap;
+   }
+
+   &__footer {
+      padding: 75px 0;
+      background-color: #282f35;
+      text-align: center;
+
+      @media (max-width: 1100px) {
+         padding: 50px 0;
+		}
+		
+		@media (max-width: 600px) {
+			padding: 30px 0;
+		}
+   }
+
+   &__btn {
+      display: inline-block;
+      padding: 15px 60px;
+      font-size: 14px;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 2.8px;
+      text-transform: uppercase;
+      background-color: #282f35;
+      border: 1px solid #fff;
+      transition: 0.2s ease-in;
+
+      &:hover {
+         color: #282f35;
+         background-color: #f7f7f7;
+      }
+
+      @media (max-width: 1100px) {
+         padding: 15px 45px;
+      }
+   }
+
+   &__column {
+      flex: 0 1 16.666%;
+
+      @media (max-width: 1100px) {
+         flex: 1 1 50%;
+      }
+   }
+
+   &__column--b {
+      flex: 0 1 33.333%;
+
+      @media (max-width: 1100px) {
+         flex: 1 1 100%;
+      }
+   }
+
+   &__block {
+   }
+}
+.block-shop {
+   height: 100%;
+
+   &__row {
+      display: flex;
+   }
+
+   &__column {
+      flex: 0 1 50%;
+   }
+
+   &__item {
+      height: auto;
+      padding: 0px 0px 50% 0px;
+   }
+
+   &__item--l {
+      padding: 0px 0px 100% 0px;
+   }
+
+   &__item--b {
+      padding: 0px 0px 200.3% 0px;
+   }
+}
+
+.subscribe {
+   &__body {
+      padding: 110px 0;
+      max-width: 523px;
+      margin: 0 auto;
+      text-align: center;
+
+      @media (max-width: 767px) {
+         padding: 50px 0;
+		}
+		
+		@media (max-width: 600px) {
+			padding: 30px 0;
+		}
+   }
+
+   &__logo {
+      margin-bottom: 35px;
+   }
+
+   &__label {
+      margin-bottom: 35px;
+      font-size: 24px;
+      color: #848789;
+      font-style: italic;
+   }
+
+   &__form {
+      display: flex;
+
+      @media (max-width: 550px) {
+         display: block;
+      }
+   }
+
+   &__input {
+      flex: 1 1 auto;
+      padding-right: 8px;
+
+      @media (max-width: 550px) {
+         padding: 0px 0px 8px 0px;
+      }
+
+      input {
+         width: 100%;
+         height: 69px;
+         padding: 0 28px;
+         font-size: 20px;
+         color: #929292;
+         font-style: italic;
+         border: 1px solid #d3d7d9;
+         background-color: #fff;
+
+         &:focus {
+            color: #333;
+            font-style: normal;
+            border-color: #333;
+         }
+      }
+   }
+
+   &__button {
+      flex: 0 0 126px;
+   }
+
+   &__btn {
+      width: 100%;
+      height: 69px;
+      line-height: 69px;
+      font-size: 24px;
+      font-weight: 300;
+      color: #fff;
+      text-transform: uppercase;
+      background-color: #64c29e;
+      transition: 0.2s ease-in;
+
+      &:hover {
+         background-color: #4d9177;
+      }
+   }
+}
+
+.footer {
+   background-color: #f7f7f7;
+
+   &__row {
+      padding: 100px 0;
+      display: flex;
+      align-items: center;
+
+      @media (max-width: 1100px) {
+         padding: 50px 0;
+      }
+
+      @media (max-width: 600px) {
+         padding: 30px 0;
+         flex-direction: column;
+         text-align: center;
+      }
+   }
+
+   &__column {
+      flex: 0 1 33.3333%;
+   }
+
+   &__address {
+      font-size: 16px;
+      color: #848789;
+      font-weight: 400;
+      line-height: 18px;
+
+      p:first-child {
+         font-weight: 700;
+      }
+   }
+
+   &__social {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @media (max-width: 600px) {
+         margin: 15px 0;
+      }
+   }
+
+   &__dev {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      font-size: 14px;
+      color: #848789;
+      font-style: italic;
+
+      &__text {
+      }
+   }
+}
+
+.social {
+   &__link {
+      margin: 0px 7.5px;
+      transition: 0.2s ease-in;
+
+      &:hover {
+         transform: scale(1.1);
+      }
+   }
+}
+
+.dev {
+   &__text {
+      font-size: 14px;
+      color: #848789;
+      font-style: italic;
+      margin-right: 10px;
+   }
+
+   &__icon {
+   }
+}
